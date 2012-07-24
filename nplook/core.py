@@ -7,7 +7,10 @@ def represent(obj):
     if isinstance(obj, np.ndarray):
         return "ndarray: {0} [{1}]".format(obj.shape, obj.dtype)
     else:
-        return repr(obj)
+        lines = repr(obj).split("\n")
+        if len(lines) > 5:
+            lines = lines[:5] + ["..."]
+        return "\n".join(lines)
 
 def summarize(filename):
     s = ""
@@ -18,29 +21,25 @@ def summarize(filename):
 
     status = ''
     if data is None:
-        status = 'FILE NOT FOUND!'
+        return None#status = 'FILE NOT FOUND!'
 
     s += "-> {0} {1}\n".format(filename, status)
     
-    if data is not None:
+    if isinstance(data, np.lib.npyio.NpzFile):
         N = max(map(lambda x: len(x), data.keys()))
         indent = 3
         for k in data.keys():
             x = represent(data[k])
             x = x.replace('\n', '\n'+' '*(N+2 + indent))
             s += " "*indent + "{0} : {1}\n".format(k.rjust(N), x)
+    else:
+        indent = 0
+        x = represent(data)
+        x = x.replace('\n', '\n'+' '*(indent))
+        s += " "*indent + x
+
     # Remove the last newline
     if s[-1] == '\n':
         s = s[:-1]
     return s
 
-
-if __name__ == '__main__':
-    filenames = sys.argv[1:]
-    if filenames:
-        for i, fn in enumerate(filenames):
-            if i != 0: print()
-            print(summarize(fn))
-    else:
-        print("Usage: npzlook file1 [file2, ...]")
-        print(" ex. npzlook data*.npz")

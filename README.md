@@ -1,7 +1,7 @@
 npzlook
 =======
 
-Command-line tool that peeks into a numpy NPZ file and summarizes its contents.
+Command-line tool that peeks into a numpy `npy` or `npz` file and summarizes its contents.
 
 installation
 ------------
@@ -11,6 +11,6 @@ installation
 usage
 -----
 
-    npzlook data.npz 
-    npzlook *.npz
-    npzlook --help
+    $ nplook data.npy 
+    $ nplook *.npz
+
