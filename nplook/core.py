@@ -5,7 +5,7 @@ import numpy as np
 
 def represent(obj):
     if isinstance(obj, np.ndarray):
-        return "ndarray: {0} [{1}]".format(obj.shape, obj.dtype)
+        return "ndarray {0} [{1}]".format(obj.shape, obj.dtype)
     else:
         lines = repr(obj).split("\n")
         if len(lines) > 5:
@@ -33,7 +33,7 @@ def summarize(filename):
             x = x.replace('\n', '\n'+' '*(N+2 + indent))
             s += " "*indent + "{0} : {1}\n".format(k.rjust(N), x)
     else:
-        indent = 0
+        indent = 3
         x = represent(data)
         x = x.replace('\n', '\n'+' '*(indent))
         s += " "*indent + x
