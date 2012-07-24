@@ -2,6 +2,7 @@
 from __future__ import print_function
 import sys
 import npzlook
+import glob
 from optparse import OptionParser
 
 def main():
@@ -16,7 +17,11 @@ def main():
 
     (options, args) = parser.parse_args()
     
-    for filename in args:
-        for i, fn in enumerate(filenames):
-            if i != 0: print()
-            print(npzlook.summarize(fn))
+    if args:
+        filenames = args
+    else:
+        filenames = glob.glob("*.npz")
+
+    for i, filename in enumerate(filenames):
+        if i != 0: print()
+        print(npzlook.summarize(filename))

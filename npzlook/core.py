@@ -22,7 +22,7 @@ def summarize(filename):
 
     s += "-> {0} {1}\n".format(filename, status)
     
-    if data:
+    if data is not None:
         N = max(map(lambda x: len(x), data.keys()))
         indent = 3
         for k in data.keys():
