@@ -11,7 +11,7 @@ quick install
 install from github
 -------------------
 
-    git clone git@github.com:gustavla/nplook.git
+    git clone git://github.com/gustavla/nplook.git 
     cd nplook
     [sudo] python setup.py install
 
