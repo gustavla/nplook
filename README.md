@@ -1,5 +1,5 @@
-npzlook
-=======
+nplook
+======
 
 Command-line tool that peeks into a numpy `npy` or `npz` file and summarizes its contents.
 
