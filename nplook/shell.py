@@ -22,7 +22,7 @@ def main():
     if args:
         filenames = args
     else:
-        filenames = glob.glob("*.np{z,y}")
+        filenames = glob.glob("*")
 
     i = 0
     for filename in filenames:
@@ -31,3 +31,6 @@ def main():
             if i != 0: print()
             print(summary)
             i += 1
+
+    if i == 0:
+        print("No files that can be summarized matched your query")

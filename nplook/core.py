@@ -6,6 +6,8 @@ import numpy as np
 def represent(obj):
     if isinstance(obj, np.ndarray):
         return "ndarray {0} [{1}]".format(obj.shape, obj.dtype)
+    elif isinstance(obj, str):
+        return "string ({0})".format(len(obj))
     else:
         lines = repr(obj).split("\n")
         if len(lines) > 5:
