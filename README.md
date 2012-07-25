@@ -18,6 +18,7 @@ install from github
 usage
 -----
 
-    $ nplook data.npy 
-    $ nplook *.npz
-
+    $ nplook output.npz
+    -> output.npz
+       templates : ndarray (9, 64, 64) [float64]
+         weights : ndarray (9,) [float64]
