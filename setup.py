@@ -4,7 +4,7 @@ from __future__ import absolute_import
 from distutils.core import setup
 
 # Write this to
-version = "0.1.2.dev-2"
+version = "0.1.2"
 
 setup(name='nplook',
     version=version,
