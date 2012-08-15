@@ -5,7 +5,10 @@ import numpy as np
 
 def represent(obj):
     if isinstance(obj, np.ndarray):
-        return "ndarray {0} [{1}]".format(obj.shape, obj.dtype)
+        if obj.shape == ():
+            return '{0} [{1}]'.format(repr(obj[()]), obj.dtype)
+        else:
+            return "ndarray {0} [{1}]".format(obj.shape, obj.dtype)
     elif isinstance(obj, str):
         return "string ({0})".format(len(obj))
     else:
