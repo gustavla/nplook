@@ -8,6 +8,10 @@ quick install
 
     [sudo] pip install nplook
 
+If you don't want pip to try to upgrade your numpy, you might want to do
+
+    [sudo] pip install --no-deps nplook
+
 install from github
 -------------------
 
